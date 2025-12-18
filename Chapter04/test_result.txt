@@ -1,0 +1,28 @@
+Start Tests: Fri Nov 14 13:15:41 KST 2025
+HOST=localhost
+PORT=8080
+Restarting the test environment...
+$ docker compose down --remove-orphans
+$ docker compose up -d
+Wait for: curl http://localhost:8080/product-composite/1... , retry #1 , retry #2 DONE, continues...
+Test OK (HTTP Code: 200)
+Test OK (actual value: 1)
+Test OK (actual value: 3)
+Test OK (actual value: 3)
+Test OK (HTTP Code: 404, {"timestamp":"2025-11-14T04:15:50.412245396Z","path":"/product-composite/13","message":"No product found for productId: 13","status":404,"error":"Not Found"})
+Test OK (actual value: No product found for productId: 13)
+Test OK (HTTP Code: 200)
+Test OK (actual value: 113)
+Test OK (actual value: 0)
+Test OK (actual value: 3)
+Test OK (HTTP Code: 200)
+Test OK (actual value: 213)
+Test OK (actual value: 3)
+Test OK (actual value: 0)
+Test OK (HTTP Code: 422, {"timestamp":"2025-11-14T04:15:50.491986304Z","path":"/product-composite/-1","message":"Invalid productId: -1","status":422,"error":"Unprocessable Entity"})
+Test OK (actual value: "Invalid productId: -1")
+Test OK (HTTP Code: 400, {"timestamp":"2025-11-14T04:15:50.511+00:00","path":"/product-composite/invalidProductId","status":400,"error":"Bad Request","requestId":"4bd66c7c-7","message":"Type mismatch."})
+Test OK (actual value: "Type mismatch.")
+We are done, stopping the test environment...
+$ docker compose down
+End, all tests OK: Fri Nov 14 13:15:53 KST 2025
